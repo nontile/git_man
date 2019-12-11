@@ -23,4 +23,7 @@ git remote -v
 ## 로그
 git log --oneline --decorate --graph --all
 
+## merge
+git checkout master
+git merge dev
 
