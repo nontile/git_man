@@ -48,5 +48,5 @@ git branch -r
 
 git branch -a
 
-git checkout <branch>
+git checkout "<branch>"
  
