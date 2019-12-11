@@ -11,6 +11,14 @@ git config user.email <사용자 이메일>
 
 git config --list
 
+git config credential.helper store
+
+git conifg --global credential.helper 'cache --timeout 7200'
+
+1 day: 86400
+7 day: 604800
+30day: 2592000
+
 ## 프로젝트 가져오기
 
 git clone <URL.git>   # URL 뒤에 .git이 있어야됩니다
@@ -20,6 +28,9 @@ git remote add origin <git url>
 git remote -v
 
 # 
+git add .
+
+git commit -m ""
 
 git push 
 
