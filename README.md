@@ -15,15 +15,19 @@ git config --list
 
 git clone <URL.git>   # URL 뒤에 .git이 있어야됩니다
 
-git clone https://github.com/psychet-learn/practice_git.git
+git remote add origin <git url>
 
 git remote -v
 
+# 
+
+git push 
 
 ## 로그
 git log --oneline --decorate --graph --all
 
 ## merge
 git checkout master
+
 git merge dev
 
