@@ -1,5 +1,8 @@
 # git cli usage
 
+## 옵션
+--global
+
 ## 사용자 설정
 
 git config user.name <사용자 이름>
@@ -16,6 +19,8 @@ git clone https://github.com/psychet-learn/practice_git.git
 
 git remote -v
 
+
+## 로그
 git log --oneline --decorate --graph --all
 
 
