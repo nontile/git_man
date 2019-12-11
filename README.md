@@ -21,13 +21,13 @@ git conifg --global credential.helper 'cache --timeout 7200'
 
 ## 프로젝트 가져오기
 
-git clone <URL.git>   # URL 뒤에 .git이 있어야됩니다
+git clone <URL.git> ./dir
 
 git remote add origin <git url>
 
 git remote -v
 
-# 
+# 버전
 git add .
 
 git commit -m ""
@@ -37,8 +37,16 @@ git push
 ## 로그
 git log --oneline --decorate --graph --all
 
+git l
 ## merge
 git checkout master
 
 git merge dev
 
+## branch
+git branch -r
+
+git branch -a
+
+git checkout <branch>
+ 
