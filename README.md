@@ -1,4 +1,4 @@
-# git cli usage
+홈디렉토리 .gitconfig
 
 ## 옵션
 --global
@@ -27,7 +27,7 @@ git remote add origin <git url>
 
 git remote -v
 
-# 버전
+## 버전
 git add .
 
 git commit -m ""
