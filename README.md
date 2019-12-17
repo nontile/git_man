@@ -28,17 +28,22 @@ git remote add origin <git url>
 git remote -v
 
 ------------------------------------------
+
 @ git remote add origin master <원격저장주소>
 -> 원격저장소 등록
+
 @ git remote -v
 -> 원격저장소 보기
+
 @ git push -u origin master :
 -> 앞으로 현재 브랜치를 원격저장소 origin의 master에 동기화하겠다.
+
 @ git remote remove <원격저장소이름>
 -> 원격저장소로 등록한 이름과 주소 삭제
 
 -----------------------------------------
 원격저장소에 이미 파일이 있는 경우 pull을 먼저한다.(push 아닌)
+
 git init .
 
 git remote add origin <repository-url>
