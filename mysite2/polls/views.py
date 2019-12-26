@@ -9,9 +9,8 @@ log = logging.getLogger(__name__)
 
 
 def index(request):
-    log.error(__name__)
-    lastest_question_list = Question.objects.all().order_by('-pub_date')[:5]
-    context = {'lastest_question_list': lastest_question_list}
+    log.info(__name__)
+    context = {'name': 'idy'}
     return render(request, 'polls/index.html', context)
 
 
