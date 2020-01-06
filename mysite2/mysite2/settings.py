@@ -24,12 +24,9 @@ SECRET_KEY = 'b+c((j*zc-i2lai2arc9d^df3*3p-e2&nqgzqkhh4)17pf9$w4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'false').lower() == 'true'
 
-<<<<<<< Updated upstream
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '192.168.200.118']
-=======
-ALLOWED_HOSTS = ['*']
 
->>>>>>> Stashed changes
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '192.168.200.118']
+
 
 # Application definition
 
