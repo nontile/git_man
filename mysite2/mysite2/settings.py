@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-
+from celery.schedules import crontab
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -24,7 +24,7 @@ SECRET_KEY = 'b+c((j*zc-i2lai2arc9d^df3*3p-e2&nqgzqkhh4)17pf9$w4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'false').lower() == 'true'
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '192.168.200.118']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 INSTALLED_APPS = [
@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'polls.apps.PollsConfig',
+    'backend.apps.BackendConfig',
 ]
 
 MIDDLEWARE = [
@@ -70,16 +71,16 @@ WSGI_APPLICATION = 'mysite2.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'o2',
-        'USER': 'scott',
-        'PASSWORD': 'tiger',
-        'HOST': '192.168.200.118',
-        'PORT': '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'o2',
+#         'USER': 'scott',
+#         'PASSWORD': 'tiger',
+#         'HOST': '192.168.200.118',
+#         'PORT': '5432',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -116,10 +117,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, '.statics')
 
 LOGGING_CONFIG = 'logging.config.dictConfig'
 LOGGING = {
@@ -173,3 +174,17 @@ LOGGING = {
 
 if not os.path.isdir(BASE_DIR + "/logs"):
     os.mkdir(BASE_DIR + "/logs")
+
+# celery
+# CELERY_BROKER_URL = 'redis://redis:6379'
+# CELERY_RESULT_BACKEND = 'redis://redis:6379'
+# CELERY_ACCEPT_CONTENT = ['application/json']
+# CELERY_TASK_SERIALIZER = 'json'
+# CELERY_RESULT_SERIALIZER = 'json'
+
+CELERY_BEAT_SCHEDULE = {
+    'hello': {
+        'task': 'backend.tasks.hello',
+        'schedule': crontab()  # execute every minute
+    }
+}
